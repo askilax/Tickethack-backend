@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 	});
 });
 
-router.get("/:date", (req, res) => {
+router.get("/byDate/:date", (req, res) => {
   Trips.find(req.params.date).then(data => {
     if (data) {
       res.json({ result: true, trips : data });
@@ -22,7 +22,7 @@ router.get("/:date", (req, res) => {
   });
 });
 //search the trips by date
-router.get('/:departure/:arrival/:date', (req,res) => {
+router.get('/departure/:departure/:arrival/:date', (req,res) => {
   //  check that all the body is completed
    /* if (!checkBody(req.body, ['departure', 'arrival', 'date'])) {
         res.json({result: false, error: 'Missing or empty fields'});
@@ -44,4 +44,20 @@ router.get('/:departure/:arrival/:date', (req,res) => {
 });
 
 
+
+
+
+router.get("/byId/:id", (req, res) => {
+  const tripId = req.params.id;
+
+  Trips.findById({_id: tripId}).then(data => {
+    if (data) {
+      res.json({ result: true, trip: data });
+    } else {
+      res.json({ result: false, error: "Trip not found" });
+    }
+  });
+});
+
 module.exports = router;
+

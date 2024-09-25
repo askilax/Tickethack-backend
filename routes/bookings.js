@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 
 
 // Route GET for available or unavailable cart
-router.get('/cart', async (req, res) => {
+router.get('byCart/cart', async (req, res) => {
   const cart = await Bookings.find({ isPaid: false });
 
   if (cart.length > 0) {
@@ -50,7 +50,7 @@ router.get('/cart', async (req, res) => {
 
 
 // Route GET - find a trip by ID
-router.get("/:id", (req, res) => {
+router.get("/fbyId/:id", (req, res) => {
   Bookings.findOne({ _id: req.params.id }).then(data => {
       if (data) {
           res.json({ result: true, booking: data });
@@ -61,7 +61,7 @@ router.get("/:id", (req, res) => {
 });
 
 // Route DELETE - delete a trip ID
-router.delete("/:id", (req, res) => {
+router.delete("/delById/:id", (req, res) => {
   Bookings.deleteOne({ _id: req.params.id }).then(deletedDoc => {
       if (deletedDoc.deletedCount > 0) {
           // deletion done
