@@ -4,7 +4,7 @@ var router = express.Router();
 require('../models/connection');
 const Users = require('../models/users');
 const Trips = require('../models/trips');
-const Cart = require('../models/cart');
+// const Cart = require('../models/cart');
 const Bookings = require('../models/bookings');
 const {checkBody} = require('../modules/checkBody');
 

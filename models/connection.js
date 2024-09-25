@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const connectionString = 'mongodb+srv://vdk:eVYu27OyFGbhNBCe@cluster0.mcs5y.mongodb.net/tickethack';
-//const uri = 'Remplacez par la chaîne de connexion MongoDB';
+const connectionString = 'mongodb+srv://catherine:CjECJRKLF5iPO2ph@cluster0.mcs5y.mongodb.net/tickethack';
+//const url = 'Remplacez par la chaîne de connexion MongoDB';
 
 mongoose.connect(connectionString,{ connectTimeoutMS: 2000 } )
     .then(() => {
